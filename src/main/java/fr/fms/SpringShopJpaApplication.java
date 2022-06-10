@@ -23,6 +23,7 @@ import fr.fms.entities.Category;
 
 @SpringBootApplication
 public class SpringShopJpaApplication implements CommandLineRunner {
+	
 
 	@Autowired
 	EShopBusinessImpl eshopBusiness;
@@ -61,10 +62,12 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 				break;
 
 			case 3:
+				displayArticles();
 				removeArticle();
 				break;
 
 			case 4:
+				displayArticles();
 				updateArticle();
 				break;
 
@@ -88,13 +91,18 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 				case 1:
 					addCategory();
 					break;
+					
 				case 2:
+					displayCategories();
 					removeCategory();
 					break;
+					
 				case 3:
+					displayCategories();
 					updateCategory();
 
 				case 4:
+					displayCategories();
 					displayArticlesByCategories();
 					break;
 
