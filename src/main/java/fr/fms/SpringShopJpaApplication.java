@@ -143,7 +143,7 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	
 	public void addArticle() {
 		Scanner scan= new Scanner(System.in);
-		System.out.println("Indiquez la marque du téléphone");
+		System.out.println("Indiquez la marque de l'article");
 		String name = scan.next();
 		System.out.println("Indiquez la description de l'article");
 		String description = scan.next();
@@ -152,7 +152,9 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 		System.out.println("Indiquez la catégorie de l'article");
 		String nameCategory = scan.next();
 		Category category = eshopBusiness.findCategories(nameCategory);
+		System.out.println("description " + description + " brand " + name);
 		Article article = new Article(name, description, price, category);
+		System.out.println(article);
 		eshopBusiness.addArticles(article);
 		System.out.println("Article ajouté en base");
 	}
@@ -170,7 +172,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 		System.out.println("Indiquez l'identifiant de l'article que vous voulez mettre à jour");
 		Long id3=scan.nextLong();
 		Optional<Article> article3=eshopBusiness.findArticle(id3);
-		System.out.println(article3.get());
 		System.out.println("Indiquez la marque de l'article");
 		String brand = scan.next();
 		article3.get().setBrand(brand);
@@ -183,11 +184,8 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 		System.out.println("Indiquez la catégorie de l'article");
 		String nameCategory1 = scan.next();
 		Category category1 = eshopBusiness.findCategories(nameCategory1);
-		
-		
-	
 		article3.get().setCategory(category1);
-		System.out.println(article3.get());
+
 		eshopBusiness.addArticles(article3.get());
 		System.out.println("Article modifié en base");
 	}

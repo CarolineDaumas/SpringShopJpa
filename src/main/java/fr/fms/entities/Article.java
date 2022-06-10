@@ -1,6 +1,8 @@
 package fr.fms.entities;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +15,8 @@ public class Article implements Serializable {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String description;
 	private String brand;
+	private String description;
 	private double price;
 	
 	@ManyToOne
@@ -24,31 +26,23 @@ public class Article implements Serializable {
 		super();
 	}
 
-	
-	
-	
-	public Article(Long id, String description, String brand, double price, Category category) {
+	public Article(String brand, String description, double price, Category category) {
+		super();
+		this.brand = brand;
+		this.description = description;
+		this.price = price;
+		this.category = category;
+	}
+
+
+	public Article(Long id, String brand, String description, double price, Category category) {
 		super();
 		this.id = id;
-		this.description = description;
 		this.brand = brand;
+		this.description = description;
 		this.price = price;
 		this.category = category;
 	}
-
-
-
-
-	public Article(String description, String brand, double price, Category category) {
-		
-		this.description = description;
-		this.brand = brand;
-		this.price = price;
-		this.category = category;
-	}
-
-
-
 
 
 	public Long getId() {

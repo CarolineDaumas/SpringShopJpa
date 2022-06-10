@@ -28,8 +28,8 @@ public class EShopBusinessImpl implements EShopBusiness {
 
 	@Override
 	public Article addArticles(Article article) {
-		articleRepository.save(article);
-		return article;
+		return articleRepository.save(article);
+		
 	}
 
 	@Override
