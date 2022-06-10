@@ -27,8 +27,8 @@ public class EShopBusinessImpl implements EShopBusiness {
 	}
 
 	@Override
-	public Article addArticles(Article article, String nameCategory) {
-		articleRepository.save(new Article(article.getId(),article.getBrand(),article.getDescription(),article.getPrice(), categoryRepository.findByName(nameCategory)));
+	public Article addArticles(Article article) {
+		articleRepository.save(article);
 		return article;
 	}
 

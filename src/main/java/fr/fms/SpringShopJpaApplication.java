@@ -153,7 +153,7 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 		String nameCategory = scan.next();
 		Category category = eshopBusiness.findCategories(nameCategory);
 		Article article = new Article(name, description, price, category);
-		eshopBusiness.addArticles(article, nameCategory);
+		eshopBusiness.addArticles(article);
 		System.out.println("Article ajouté en base");
 	}
 	
@@ -170,21 +170,25 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 		System.out.println("Indiquez l'identifiant de l'article que vous voulez mettre à jour");
 		Long id3=scan.nextLong();
 		Optional<Article> article3=eshopBusiness.findArticle(id3);
+		System.out.println(article3.get());
 		System.out.println("Indiquez la marque de l'article");
-		String name1 = scan.next();
+		String brand = scan.next();
+		article3.get().setBrand(brand);
 		System.out.println("Indiquez la description de l'article");
 		String description1 = scan.next();
+		article3.get().setDescription(description1);
 		System.out.println("Indiquez le prix de l'article");
 		double price1 = scan.nextDouble();
+		article3.get().setPrice(price1);
 		System.out.println("Indiquez la catégorie de l'article");
 		String nameCategory1 = scan.next();
 		Category category1 = eshopBusiness.findCategories(nameCategory1);
-		article3.get().setBrand(name1);
-		article3.get().setDescription(description1);
-		article3.get().setPrice(price1);
+		
+		
 	
 		article3.get().setCategory(category1);
-		eshopBusiness.addArticles(article3.get(), nameCategory1);
+		System.out.println(article3.get());
+		eshopBusiness.addArticles(article3.get());
 		System.out.println("Article modifié en base");
 	}
 	

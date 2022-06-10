@@ -10,7 +10,7 @@ public interface EShopBusiness {
 
 	public List <Article> getListArticles();
 
-	Article addArticles(Article article, String nameCategory);
+	Article addArticles(Article article);
 	
 	public List<Article> getArticlesByCategory (Long categoryId);
 
