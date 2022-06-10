@@ -24,6 +24,7 @@ import fr.fms.entities.Category;
 @SpringBootApplication
 public class SpringShopJpaApplication implements CommandLineRunner {
 	
+	private static Scanner scan= new Scanner(System.in);
 
 	@Autowired
 	EShopBusinessImpl eshopBusiness;
@@ -170,7 +171,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	}
 
 	public void addArticle() {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Indiquez la marque de l'article");
 		String name = scan.next();
 		System.out.println("Indiquez la description de l'article");
@@ -188,7 +188,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	}
 
 	public void removeArticle() {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Indiquez l'identifiant de l'article que vous voulez supprimer");
 		Long id = scan.nextLong();
 		eshopBusiness.removeById(id);
@@ -196,7 +195,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	}
 
 	public void updateArticle() {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Indiquez l'identifiant de l'article que vous voulez mettre à jour");
 		Long id3 = scan.nextLong();
 		Optional<Article> article3 = eshopBusiness.findArticle(id3);
@@ -219,8 +217,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	}
 
 	public void addCategory() {
-
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Indiquez le nom de la catégorie");
 		String nameCategory = scan.next();
 		Category category2 = new Category(nameCategory);
@@ -230,7 +226,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	}
 
 	public void removeCategory() {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Indiquez l'identifiant de la catégorie que vous voulez supprimer");
 		Long id = scan.nextLong();
 		eshopBusiness.removeCategoryById(id);
@@ -238,7 +233,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	}
 
 	public void updateCategory() {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Indiquez l'identifiant de la catégorie que vous voulez mettre à jour");
 		Long id = scan.nextLong();
 		Optional<Category> category = eshopBusiness.findCategory(id);
@@ -270,7 +264,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	}
 
 	public void displayArticlesByCategories() {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Indiquez l'identifiant de la catégorie que vous voulez afficher");
 		Long id = scan.nextLong();
 		List<Article> articles = eshopBusiness.getArticlesByCategory(id);
@@ -292,7 +285,6 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 	}
 
 	public void displaySingleArticle() {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Quel article voulez vous afficher? Saisissez un identifiant");
 		Long id2 = scan.nextLong();
 		Optional<Article> article2 = eshopBusiness.findArticle(id2);
