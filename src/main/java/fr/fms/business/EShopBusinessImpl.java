@@ -1,10 +1,11 @@
 package fr.fms.business;
 
-import java.security.PublicKey;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import fr.fms.dao.ArticleRepository;
@@ -22,7 +23,6 @@ public class EShopBusinessImpl implements EShopBusiness {
 	
 	@Override
 	public List<Article> getListArticles() {
-		
 		return articleRepository.findAll() ;
 	}
 
@@ -75,4 +75,12 @@ public class EShopBusinessImpl implements EShopBusiness {
 	public List<Article> getArticlesByCategory(Long categoryId) {
 		return articleRepository.findByCategoryId(categoryId);
 	}
+
+	@Override
+	public Page<Article> findAllByPage(Pageable pageable) {
+		
+		return articleRepository.findAll(pageable);
+	}
+	
+	
 }

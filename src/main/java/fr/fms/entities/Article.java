@@ -83,13 +83,9 @@ public class Article implements Serializable {
 	}
 
 
-
-
 	public Category getCategory() {
 		return category;
 	}
-
-
 
 
 	public void setCategory(Category category) {

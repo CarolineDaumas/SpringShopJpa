@@ -1,8 +1,10 @@
 package fr.fms.dao;
 
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -25,14 +27,6 @@ public interface ArticleRepository extends JpaRepository<Article,Long> {
 	public void deleteById (Long id);
 	
 	public List<Article> findAll();
-	//public Article update(Article article);
 	
-//	@Query("update Article a set a.description = :description where a.id = :id")
-//	@Modifying
-//	public int updateArticle(@Param("description")String description, @Param("id") Long id);
-//	
-//	@Query ("update A from Article A set A.brand =:x where A.id= :y")
-//	@Modifying
-//	public Article updateArticles(@Param("x") String kw, @Param("y") Long y);
-//	
+	
 }
